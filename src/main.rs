@@ -18,5 +18,15 @@ fn main() {
     let mci_location = ("MCI", 39.300_642_7, -94.712_593_7);
     let (location, latitude, longitude) = mci_location;
     println!("{} {} {}", location, latitude, longitude);
+
+    let city = "Chicago";
+    let team = "Bears";
+    let team_name = format!("{} {}", city, team);
+    println!("{team_name}");
+
+    let mut nickname = String::new();
+    nickname.push_str("Monsters of the Midway");
+    nickname.push_str(" - 1985 Super Bowl champs");
+    println!("{nickname}");
     // end data types
 }
