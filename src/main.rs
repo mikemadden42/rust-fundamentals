@@ -29,4 +29,25 @@ fn main() {
     nickname.push_str(" - 1985 Super Bowl champs");
     println!("{nickname}");
     // end data types
+
+    // start variables
+    let age: u8 = 21;
+    let current_year = 2022;
+    let current_tax = 0.75;
+    let cost = 2.95;
+    let items = 12;
+    // cast items to f64 to match cost
+    let bill = cost * f64::from(items);
+    println!("age = {age}");
+    println!("current_year = {current_year}");
+    println!("current_tax = {current_tax}");
+    println!("bill = {bill}");
+    let scope = "outer";
+    println!("scope = {scope}");
+    {
+        let scope = "inner";
+        println!("scope = {scope}");
+    }
+    println!("scope = {scope}");
+    // end variables
 }
