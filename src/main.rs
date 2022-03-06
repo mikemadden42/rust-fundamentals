@@ -50,4 +50,23 @@ fn main() {
     }
     println!("scope = {scope}");
     // end variables
+
+    // start operators
+    let modulas = 18 % 7;
+    println!("modules = {modulas}");
+    let squared = i32::pow(8, 2);
+    println!("8 squared = {squared}");
+    let float_int = f32::powi(3.4, 3);
+    let float_float = f32::powf(3.4, 3.4);
+    println!("float_int = {float_int}");
+    println!("float_float = {float_float}");
+    let order_ops = ((12 * 8 + 2) - 8 / 4) - 95;
+    println!("order_ops = {order_ops}");
+    let maybe_true = 1 == order_ops;
+    let always_false = 1 == 2;
+    let not_always_false = !always_false;
+    println!("maybe_true = {maybe_true}");
+    println!("always_false = {always_false}");
+    println!("not_always_false = {not_always_false}");
+    // end operators
 }
