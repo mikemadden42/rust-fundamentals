@@ -5,6 +5,12 @@ fn main() {
     project_part1();
     control_flow();
 }
+enum NavigationAids {
+    NBD,
+    VOR,
+    VORDME,
+    // FIX { name: String, lat: f32, long: f32 },
+}
 
 fn operators() {
     let modulas = 18 % 7;
@@ -142,4 +148,8 @@ fn control_flow() {
     } else {
         println!("Back to the drawing board...");
     }
+
+    println!("NBD: {}", NavigationAids::NBD as u8);
+    println!("VOR: {}", NavigationAids::VOR as u8);
+    println!("VORDME: {}", NavigationAids::VORDME as u8);
 }
