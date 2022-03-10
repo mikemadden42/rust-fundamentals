@@ -68,5 +68,29 @@ fn main() {
     println!("maybe_true = {maybe_true}");
     println!("always_false = {always_false}");
     println!("not_always_false = {not_always_false}");
+    let have_boarding_pass = true;
+    let have_id = false;
+    if have_boarding_pass && have_id {
+        println!("Welcome aboard.");
+    } else {
+        println!("Sorry. Please return to your car.");
+    }
+    let first_value = 42;
+    let second_value = 1776;
+    if first_value >= second_value {
+        println!("first_value is larger.");
+    } else {
+        println!("second_value is larger.");
+    }
+    let bitwise_and = 1776 & 42;
+    let bitwise_or = 1776 | 42;
+    let bitwise_exclusive_or = 1776 ^ 42;
+    let shift_left = 1776 << 1;
+    let shift_right = 1776 >> 1;
+    println!("bitwise_and = {bitwise_and}");
+    println!("bitwise_or = {bitwise_or}");
+    println!("bitwise_exclusive_or = {bitwise_exclusive_or}");
+    println!("shift_left = {shift_left}");
+    println!("shift_right = {shift_right}");
     // end operators
 }
