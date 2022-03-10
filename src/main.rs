@@ -3,6 +3,7 @@ fn main() {
     variables();
     operators();
     project_part1();
+    control_flow();
 }
 
 fn operators() {
@@ -119,4 +120,26 @@ fn project_part1() {
         "The distance between the two points is {:.1} kilometers",
         distance
     );
+}
+
+fn control_flow() {
+    let name = "Kyle";
+    if name == "Kyle" {
+        println!("Hi Kyle!");
+    } else if name == "Bubba" {
+        println!("Hi Bubba!");
+    } else {
+        println!("Hi there.");
+    }
+
+    let available_aircraft = "SR71";
+    let min_crew = 2;
+    let available_crew = 1;
+    if (available_aircraft == "SR71" || available_aircraft == "F117-A")
+        && available_crew >= min_crew
+    {
+        println!("Ready for flight!");
+    } else {
+        println!("Back to the drawing board...");
+    }
 }
