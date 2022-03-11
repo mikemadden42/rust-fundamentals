@@ -6,9 +6,9 @@ fn main() {
     control_flow();
 }
 enum NavigationAids {
-    NBD,
-    VOR,
-    VORDME,
+    Nbd,
+    Vor,
+    Vordme,
     // FIX { name: String, lat: f32, long: f32 },
 }
 
@@ -149,7 +149,7 @@ fn control_flow() {
         println!("Back to the drawing board...");
     }
 
-    println!("NBD: {}", NavigationAids::NBD as u8);
-    println!("VOR: {}", NavigationAids::VOR as u8);
-    println!("VORDME: {}", NavigationAids::VORDME as u8);
+    println!("NBD: {}", NavigationAids::Nbd as u8);
+    println!("VOR: {}", NavigationAids::Vor as u8);
+    println!("VORDME: {}", NavigationAids::Vordme as u8);
 }
