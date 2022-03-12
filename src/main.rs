@@ -6,10 +6,14 @@ fn main() {
     control_flow();
 }
 enum NavigationAids {
-    Nbd,
-    Vor,
-    Vordme,
-    // FIX { name: String, lat: f32, long: f32 },
+    Ndb(u16),
+    Vor(String, f32),
+    Vordme(String, f32),
+    Fix {
+        name: String,
+        latitude: f32,
+        longitude: f32,
+    },
 }
 
 fn operators() {
@@ -149,9 +153,9 @@ fn control_flow() {
         println!("Back to the drawing board...");
     }
 
-    println!("NBD: {}", NavigationAids::Nbd as u8);
-    println!("VOR: {}", NavigationAids::Vor as u8);
-    println!("VORDME: {}", NavigationAids::Vordme as u8);
+    println!("NBD: {}", NavigationAids::Ndb as usize);
+    println!("VOR: {}", NavigationAids::Vor as usize);
+    println!("VORDME: {}", NavigationAids::Vordme as usize);
 
     let airline = String::from("Southwest");
     let letter = airline.chars().nth(5);
@@ -166,5 +170,59 @@ fn control_flow() {
         "Raptor" => println!("Run!"),
         "T-Rex" => println!("Run quietly!"),
         _ => println!("Chill."),
+    }
+
+    let nbd_freq = 384;
+    match nbd_freq {
+        200..=500 => {
+            println!("Valid frequency");
+        }
+        _ => {
+            println!("Invalid frequency");
+        }
+    }
+
+    let ndb_uwl = NavigationAids::Ndb(385);
+    let vor_dqn = NavigationAids::Vor(String::from("DQN"), 114.5);
+    let vor_dme_sgh = NavigationAids::Vordme(String::from("SGH"), 113.2);
+    let fix_tarry = NavigationAids::Fix {
+        name: String::from("TARRY"),
+        latitude: 40.05333,
+        longitude: -83.91367,
+    };
+
+    print_nav_aid(&ndb_uwl);
+    print_nav_aid(&vor_dqn);
+    print_nav_aid(&vor_dme_sgh);
+    print_nav_aid(&fix_tarry);
+}
+
+fn print_nav_aid(navaid: &NavigationAids) {
+    match navaid {
+        NavigationAids::Ndb(khz) => {
+            println!("NDB frequency is {} kilohertz", khz);
+        }
+        NavigationAids::Vor(id, freq) => {
+            println!(
+                "VOR identifier is {} and it's frequency is {} kilohertz",
+                id, freq
+            );
+        }
+        NavigationAids::Vordme(id, freq) => {
+            println!(
+                "VORDME identifier is {} and it's frequency is {} kilohertz",
+                id, freq
+            );
+        }
+        NavigationAids::Fix {
+            name,
+            latitude,
+            longitude,
+        } => {
+            println!(
+                "FIX {} is at {} latitude and {} longitude",
+                name, latitude, longitude
+            );
+        }
     }
 }
