@@ -152,4 +152,19 @@ fn control_flow() {
     println!("NBD: {}", NavigationAids::Nbd as u8);
     println!("VOR: {}", NavigationAids::Vor as u8);
     println!("VORDME: {}", NavigationAids::Vordme as u8);
+
+    let airline = String::from("Southwest");
+    let letter = airline.chars().nth(5);
+    let value = match letter {
+        Some(character) => character.to_string(),
+        None => String::from("No value"),
+    };
+    println!("{value}");
+
+    let animal = "Raptor";
+    match animal {
+        "Raptor" => println!("Run!"),
+        "T-Rex" => println!("Run quietly!"),
+        _ => println!("Chill."),
+    }
 }
