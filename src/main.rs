@@ -195,6 +195,39 @@ fn control_flow() {
     print_nav_aid(&vor_dqn);
     print_nav_aid(&vor_dme_sgh);
     print_nav_aid(&fix_tarry);
+
+    let mut counter = 0;
+    loop {
+        counter += 1;
+        if counter == 5 {
+            continue;
+        }
+        if counter == 10 {
+            break;
+        }
+        println!("{counter}");
+    }
+
+    let mut index = 1;
+    while index <= 10 {
+        println!("{index}");
+        index += 1;
+    }
+
+    // exclusive range
+    for i in 1..11 {
+        println!("{i}");
+    }
+
+    // inclusive range
+    for j in 1..=10 {
+        println!("{j}");
+    }
+
+    let aircraft = ["Boeing 737", "Boeing 767", "Boeing 787"];
+    for craft in aircraft {
+        println!("{craft}");
+    }
 }
 
 fn print_nav_aid(navaid: &NavigationAids) {
