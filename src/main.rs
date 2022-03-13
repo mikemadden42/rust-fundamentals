@@ -5,6 +5,7 @@ fn main() {
     project_part1();
     control_flow();
     project_part2();
+    ownership_borrowing();
 }
 enum NavigationAids {
     Ndb(u16),
@@ -325,4 +326,18 @@ fn project_part2() {
         "\nThe total distance between the two points is {:.1} kilometers",
         total_distance
     );
+}
+
+fn ownership_borrowing() {
+    let mut original = String::from("I was here first.");
+    println!("original = {original}");
+
+    {
+        let next = &mut original;
+        *next = String::from("I was here second.");
+        println!("next = {next}");
+        println!("original = {original}");
+    }
+
+    println!("original = {original}");
 }
