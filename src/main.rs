@@ -6,6 +6,7 @@ fn main() {
     control_flow();
     project_part2();
     ownership_borrowing();
+    greet_lawdogs();
 }
 enum NavigationAids {
     Ndb(u16),
@@ -340,4 +341,15 @@ fn ownership_borrowing() {
     }
 
     println!("original = {original}");
+}
+
+fn greet(name: &str) {
+    println!("Hello {name}!");
+}
+
+fn greet_lawdogs() {
+    let lawdogs = ["Wyatt", "Doc", "Virgil", "Morgan"];
+    for lawdog in lawdogs {
+        greet(lawdog);
+    }
 }
