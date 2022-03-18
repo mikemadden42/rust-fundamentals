@@ -7,6 +7,8 @@ fn main() {
     project_part2();
     ownership_borrowing();
     greet_lawdogs();
+    let greater = find_greater(42, 31);
+    println!("greater = {greater}");
 }
 enum NavigationAids {
     Ndb(u16),
@@ -351,5 +353,13 @@ fn greet_lawdogs() {
     let lawdogs = ["Wyatt", "Doc", "Virgil", "Morgan"];
     for lawdog in lawdogs {
         greet(lawdog);
+    }
+}
+
+fn find_greater(first: u8, second: u8) -> u8 {
+    if first > second {
+        first
+    } else {
+        second
     }
 }
