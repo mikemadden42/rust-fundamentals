@@ -7,9 +7,17 @@ fn main() {
     project_part2();
     ownership_borrowing();
     greet_lawdogs();
-    let greater = find_greater(42, 31);
-    println!("greater = {greater}");
+    let greater1 = find_greater(42, 31);
+    println!("greater1 = {greater1}");
+    let greater2 = find_greater(22, 76);
+    println!("greater2 = {greater2}");
+
+    let mut original = String::from("original value");
+    print_original(&original);
+    change_original(&mut original);
+    print_original(&original);
 }
+
 enum NavigationAids {
     Ndb(u16),
     Vor(String, f32),
@@ -362,4 +370,13 @@ fn find_greater(first: u8, second: u8) -> u8 {
     } else {
         second
     }
+}
+
+fn print_original(original: &str) {
+    println!("original: {original}");
+}
+
+fn change_original(original: &mut String) {
+    let next = original;
+    *next = String::from("next value");
 }
