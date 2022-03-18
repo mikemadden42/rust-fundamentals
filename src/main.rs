@@ -14,6 +14,7 @@ fn main() {
     handle_error();
     propigate_error();
     data_structures();
+    example_trait();
 }
 
 enum NavigationAids {
@@ -492,4 +493,66 @@ fn data_structures() {
     let kcle_kslc = Segment::new(kcle, kslc);
     let distance = kcle_kslc.distance();
     println!("{:.1}", distance);
+}
+
+fn example_trait() {
+    struct Boeing {
+        required_crew: u8,
+        range: u16,
+    }
+
+    struct Airbus {
+        required_crew: u8,
+        range: u16,
+    }
+
+    trait Flight {
+        fn is_legal(
+            &self,
+            required_crew: u8,
+            available_crew: u8,
+            range: u16,
+            distance: u16,
+        ) -> bool;
+    }
+
+    impl Flight for Boeing {
+        fn is_legal(
+            &self,
+            required_crew: u8,
+            available_crew: u8,
+            range: u16,
+            distance: u16,
+        ) -> bool {
+            (available_crew >= required_crew) && (range + 150 > distance)
+        }
+    }
+
+    impl Flight for Airbus {
+        fn is_legal(
+            &self,
+            required_crew: u8,
+            available_crew: u8,
+            range: u16,
+            distance: u16,
+        ) -> bool {
+            (available_crew >= required_crew) && (range + 280 > distance)
+        }
+    }
+
+    let boeing = Boeing {
+        required_crew: 4,
+        range: 2500,
+    };
+
+    let airbus = Airbus {
+        required_crew: 7,
+        range: 2200,
+    };
+
+    let boeing_is_legal = boeing.is_legal(boeing.required_crew, 18, boeing.range, 2385);
+
+    let airbus_is_legal = airbus.is_legal(airbus.required_crew, 3, airbus.range, 1863);
+
+    println!("{}, {}", boeing_is_legal, airbus_is_legal);
 }
