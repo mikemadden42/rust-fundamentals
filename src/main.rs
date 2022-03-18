@@ -7,6 +7,7 @@ fn main() {
     project_part2();
     ownership_borrowing();
     example_functions();
+    example_closure();
 }
 
 enum NavigationAids {
@@ -382,4 +383,12 @@ fn print_original(original: &str) {
 fn change_original(original: &mut String) {
     let next = original;
     *next = String::from("next value");
+}
+
+fn example_closure() {
+    let airline = "Southwest";
+
+    let write_msg = |greeting: String| println!("{greeting} {airline}.");
+
+    write_msg(String::from("Welcome to"));
 }
