@@ -1,3 +1,6 @@
+use std::fs::File;
+use std::io::{Error, ErrorKind, Read};
+
 fn main() {
     data_types();
     variables();
@@ -8,6 +11,8 @@ fn main() {
     ownership_borrowing();
     example_functions();
     example_closure();
+    handle_error();
+    propigate_error();
 }
 
 enum NavigationAids {
@@ -391,4 +396,46 @@ fn example_closure() {
     let write_msg = |greeting: String| println!("{greeting} {airline}.");
 
     write_msg(String::from("Welcome to"));
+}
+
+fn handle_error() {
+    let filename = "updates.json";
+    match File::open(filename) {
+        Ok(file) => {
+            println!("{:#?}", file);
+        }
+        Err(error) => match error.kind() {
+            ErrorKind::NotFound => match File::create(filename) {
+                Ok(file) => {
+                    println!("File {:#?} created", file);
+                }
+                Err(error) => {
+                    println!("{:#?}", error);
+                }
+            },
+            _ => {
+                println!("{:#?}", error);
+            }
+        },
+    }
+}
+
+fn read_file(filename: &str) -> Result<String, Error> {
+    let mut file_handle = File::open(filename)?;
+    let mut file_data = String::new();
+    file_handle.read_to_string(&mut file_data)?;
+    Ok(file_data)
+}
+
+fn propigate_error() {
+    let filename = "customer.json";
+    let file_data = read_file(filename);
+    match file_data {
+        Ok(data) => {
+            println!("{}", data);
+        }
+        Err(_) => {
+            println!("Oops! Cannot read {filename}.");
+        }
+    }
 }
