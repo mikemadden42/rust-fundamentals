@@ -6,16 +6,7 @@ fn main() {
     control_flow();
     project_part2();
     ownership_borrowing();
-    greet_lawdogs();
-    let greater1 = find_greater(42, 31);
-    println!("greater1 = {greater1}");
-    let greater2 = find_greater(22, 76);
-    println!("greater2 = {greater2}");
-
-    let mut original = String::from("original value");
-    print_original(&original);
-    change_original(&mut original);
-    print_original(&original);
+    example_functions();
 }
 
 enum NavigationAids {
@@ -351,6 +342,18 @@ fn ownership_borrowing() {
     }
 
     println!("original = {original}");
+}
+
+fn example_functions() {
+    greet_lawdogs();
+    let greater1 = find_greater(42, 31);
+    println!("greater1 = {greater1}");
+    let greater2 = find_greater(22, 76);
+    println!("greater2 = {greater2}");
+    let mut original = String::from("original value");
+    print_original(&original);
+    change_original(&mut original);
+    print_original(&original);
 }
 
 fn greet(name: &str) {
