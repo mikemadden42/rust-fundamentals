@@ -15,6 +15,7 @@ fn main() {
     propigate_error();
     data_structures();
     example_trait();
+    example_vectors();
 }
 
 enum NavigationAids {
@@ -555,4 +556,13 @@ fn example_trait() {
     let airbus_is_legal = airbus.is_legal(airbus.required_crew, 3, airbus.range, 1863);
 
     println!("{}, {}", boeing_is_legal, airbus_is_legal);
+}
+
+fn example_vectors() {
+    let mut flights: Vec<&str> = vec!["STL to KC departs at 06:00", "STL to CHI departs at 06:30"];
+    flights.insert(1, "STL to SFO departs at 6:15");
+    flights.remove(0);
+    for flight in flights {
+        println!("{flight}");
+    }
 }
