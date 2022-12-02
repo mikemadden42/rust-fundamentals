@@ -177,9 +177,9 @@ fn control_flow() {
         println!("Back to the drawing board...");
     }
 
-    println!("NBD: {}", NavigationAids::Ndb as usize);
-    println!("VOR: {}", NavigationAids::Vor as usize);
-    println!("VORDME: {}", NavigationAids::Vordme as usize);
+    // println!("NBD: {}", NavigationAids::Ndb as usize);
+    // println!("VOR: {}", NavigationAids::Vor as usize);
+    // println!("VORDME: {}", NavigationAids::Vordme as usize);
 
     let airline = String::from("Southwest");
     let letter = airline.chars().nth(5);
