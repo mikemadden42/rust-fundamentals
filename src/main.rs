@@ -459,8 +459,7 @@ fn data_structures() {
                     * end_radians.cos()
                     * f64::powi((delta_longitude / 2.0).sin(), 2);
             let central_angle = 2.0 * inner_central_angle.sqrt().asin();
-            let distance = EARTH_RADIUS_IN_KILOMETERS as f64 * central_angle;
-            distance as f64
+            EARTH_RADIUS_IN_KILOMETERS * central_angle
         }
     }
 
