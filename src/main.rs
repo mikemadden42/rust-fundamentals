@@ -117,10 +117,10 @@ fn data_types() {
     println!("{} {} {}", stl_location.0, stl_location.1, stl_location.2);
     let mci_location = ("MCI", 39.300_642_7, -94.712_593_7);
     let (location, latitude, longitude) = mci_location;
-    println!("{} {} {}", location, latitude, longitude);
+    println!("{location} {latitude} {longitude}");
     let city = "Chicago";
     let team = "Bears";
-    let team_name = format!("{} {}", city, team);
+    let team_name = format!("{city} {team}");
     println!("{team_name}");
     let mut nickname = String::new();
     nickname.push_str("Monsters of the Midway");
@@ -150,10 +150,7 @@ fn project_part1() {
     let central_angle = 2.0 * inner_central_angle.sqrt().asin();
 
     let distance = EARTH_RADIUS_IN_KILOMETERS * central_angle;
-    println!(
-        "The distance between the two points is {:.1} kilometers",
-        distance
-    );
+    println!("The distance between the two points is {distance:.1} kilometers");
 }
 
 fn control_flow() {
@@ -257,29 +254,20 @@ fn control_flow() {
 fn print_nav_aid(navaid: &NavigationAids) {
     match navaid {
         NavigationAids::Ndb(khz) => {
-            println!("NDB frequency is {} kilohertz", khz);
+            println!("NDB frequency is {khz} kilohertz");
         }
         NavigationAids::Vor(id, freq) => {
-            println!(
-                "VOR identifier is {} and it's frequency is {} kilohertz",
-                id, freq
-            );
+            println!("VOR identifier is {id} and it's frequency is {freq} kilohertz");
         }
         NavigationAids::Vordme(id, freq) => {
-            println!(
-                "VORDME identifier is {} and it's frequency is {} kilohertz",
-                id, freq
-            );
+            println!("VORDME identifier is {id} and it's frequency is {freq} kilohertz");
         }
         NavigationAids::Fix {
             name,
             latitude,
             longitude,
         } => {
-            println!(
-                "FIX {} is at {} latitude and {} longitude",
-                name, latitude, longitude
-            );
+            println!("FIX {name} is at {latitude} latitude and {longitude} longitude");
         }
     }
 }
@@ -344,10 +332,7 @@ fn project_part2() {
         }
     }
 
-    println!(
-        "\nThe total distance between the two points is {:.1} kilometers",
-        total_distance
-    );
+    println!("\nThe total distance between the two points is {total_distance:.1} kilometers");
 }
 
 fn ownership_borrowing() {
@@ -416,19 +401,19 @@ fn handle_error() {
     let filename = "updates.json";
     match File::open(filename) {
         Ok(file) => {
-            println!("{:#?}", file);
+            println!("{file:#?}");
         }
         Err(error) => match error.kind() {
             ErrorKind::NotFound => match File::create(filename) {
                 Ok(file) => {
-                    println!("File {:#?} created", file);
+                    println!("File {file:#?} created");
                 }
                 Err(error) => {
-                    println!("{:#?}", error);
+                    println!("{error:#?}");
                 }
             },
             _ => {
-                println!("{:#?}", error);
+                println!("{error:#?}");
             }
         },
     }
@@ -446,7 +431,7 @@ fn propigate_error() {
     let file_data = read_file(filename);
     match file_data {
         Ok(data) => {
-            println!("{}", data);
+            println!("{data}");
         }
         Err(_) => {
             println!("Oops! Cannot read {filename}.");
@@ -493,7 +478,7 @@ fn data_structures() {
 
     let kcle_kslc = Segment::new(kcle, kslc);
     let distance = kcle_kslc.distance();
-    println!("{:.1}", distance);
+    println!("{distance:.1}");
 }
 
 fn example_trait() {
@@ -555,7 +540,7 @@ fn example_trait() {
 
     let airbus_is_legal = airbus.is_legal(airbus.required_crew, 3, airbus.range, 1863);
 
-    println!("{}, {}", boeing_is_legal, airbus_is_legal);
+    println!("{boeing_is_legal}, {airbus_is_legal}");
 }
 
 fn example_vectors() {
