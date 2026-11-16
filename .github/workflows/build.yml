@@ -15,7 +15,6 @@ jobs:
             windows-2022,
             macos-26,
             macos-15,
-            macos-14,
           ]
         toolchain: [stable, beta, nightly]
     steps:
